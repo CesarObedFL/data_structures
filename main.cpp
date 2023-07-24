@@ -3,19 +3,7 @@
 #include <climits>
 #include <cfloat>
 
-#ifndef _Linux
-	#define Limpiar system("clear");
-#elif _WIN32
-	#define Limpiar system("cls");
-#elif _WIN64
-	#define Limpiar system("cls");
-#endif
-
-#include "Lista.h"
-
-using namespace std;
-
-void pausa(){ cout<<"\nPulse una tecla para continuar..."; cin.get(); }
+#include "assets/utils.h"
 
 int main() {
     Limpiar;
@@ -30,7 +18,7 @@ int main() {
     cout << "Real de precision simple" << setw (8) << sizeof(float)*8 << setw (25) << FLT_MIN << setw (25) << FLT_MAX << endl;
     cout << "Real de precision doble" << setw (9) << sizeof(double)*8 << setw (25) << DBL_MIN << setw (25) << DBL_MAX << endl;
     cout << "\n";
-    pausa();
+    pause();
 
     return 0;
 }

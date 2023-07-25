@@ -6,11 +6,11 @@
 using namespace std;
 
 #ifndef _Linux
-	#define Limpiar system("clear");
+	#define clean system("clear");
 #elif _WIN32
-	#define Limpiar system("cls");
+	#define clean system("cls");
 #elif _WIN64
-	#define Limpiar system("cls");
+	#define clean system("cls");
 #endif
 
 void pause() { 

@@ -47,7 +47,7 @@ ArrayList<T>::ArrayList(){
 
 template <class T>
 bool ArrayList<T>::is_empty(){
-	if( first > last ){
+	if( last == -1 ){
 		return true;
 	} else {
 		return false;
@@ -144,8 +144,7 @@ void ArrayList<T>::perform_insertion(T new_item){
 template <class T>
 void ArrayList<T>::insert_item(T new_item){
 	if ( is_empty() || !is_full() ) {
-		array_list[last] = new_item;	
-		last++;
+		array_list[++last] = new_item;	
 	} else {
 		cout << "The list is full...";
 	}
@@ -154,7 +153,8 @@ void ArrayList<T>::insert_item(T new_item){
 template <class T>
 void ArrayList<T>::insert_item_by_position(int position, T new_item){
 	if ( !is_full() ) {
-		if(position >= first && position <= last){
+		if(position > first && position <= last){
+			position--;
 			for (int k = last+1; k > position; k--) {
 				array_list[k] = array_list[k-1];
             }
@@ -206,7 +206,7 @@ void ArrayList<T>::print_list(){
 		cout << "\nEmpty list\n";
 
 	} else {
-		cout << "\t\t...Listing...\n\n";
+		cout << "\n\n\t\t...Listing...\n\n";
 		int i = 0;
 		while (i < last+1){
 			cout << (i+1) << ".- " << array_list[i] << "\n";

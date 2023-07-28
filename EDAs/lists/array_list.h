@@ -11,7 +11,7 @@ class ArrayList {
 		T array_list[SIZE];
 		int first;
 		int	last; 
-		int actual_position;
+
 	public:
 		ArrayList(); /* constructor */
 
@@ -25,7 +25,6 @@ class ArrayList {
 		T get_last_item();
 		T get_next_item(int);
 		T get_previous_item(int);
-        int get_actual_position();
 
         // actions functions
 		void insert_item(T);
@@ -105,11 +104,6 @@ T ArrayList<T>::get_previous_item(int position){
 }
 
 template <class T>
-int ArrayList<T>::get_actual_position() {
-    return actual_position;
-}
-
-template <class T>
 void ArrayList<T>::perform_insertion(T new_item){
 	char option;
 	bool is_option_valid = false;
@@ -144,7 +138,7 @@ void ArrayList<T>::perform_insertion(T new_item){
 template <class T>
 void ArrayList<T>::insert_item(T new_item){
 	if ( is_empty() || !is_full() ) {
-		array_list[++last] = new_item;	
+		array_list[++last] = new_item;
 	} else {
 		cout << "The list is full...";
 	}

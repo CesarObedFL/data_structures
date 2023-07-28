@@ -17,7 +17,6 @@ int main() {
     ArrayList<int> list_of_integers;
     list_of_integers.perform_insertion(10);
     list_of_integers.perform_insertion(9);
-    cout << "\nActual Position:" << list_of_integers.get_actual_position() << endl;
     list_of_integers.perform_insertion(8);
     list_of_integers.perform_insertion(7);
     list_of_integers.print_list();

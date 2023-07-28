@@ -6,13 +6,15 @@
 #include "assets/utils.h"
 #include "algoritms/data_types.h"
 #include "algoritms/chronometer.h"
-
+#include "EDAs/lists/array_list.h"
 
 int main() {
     clean;
     print_data_types();
 
-    chronometer();
+    //chronometer();
+
+    ArrayList<int> list_of_integers;
 
     pause();
 

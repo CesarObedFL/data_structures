@@ -14,7 +14,7 @@ using namespace std;
 #endif
 
 void pause() { 
-    cout << "\nPress a key to continue..."; 
+    cout << "\nPress a key to continue..." << endl << endl; 
     cin.get(); 
 }
 

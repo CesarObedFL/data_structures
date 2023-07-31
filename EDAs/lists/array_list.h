@@ -41,7 +41,6 @@ template <class T>
 ArrayList<T>::ArrayList(){
 	first = 0;
 	last = -1;
-	actual_position = 0;
 }
 
 template <class T>

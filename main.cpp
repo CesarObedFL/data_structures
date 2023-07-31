@@ -24,6 +24,7 @@ int main() {
     list_of_integers.print_list();
     */
 
+    /*
     ArrayStack<int> stack_of_integers;
     stack_of_integers.show();
     stack_of_integers.push(1);
@@ -34,7 +35,8 @@ int main() {
     stack_of_integers.show();
     stack_of_integers.clear();
     stack_of_integers.show();
+    */
+    
     pause();
-
     return 0;
 }

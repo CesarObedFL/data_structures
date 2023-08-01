@@ -8,6 +8,7 @@
 #include "algoritms/chronometer.h"
 #include "EDAs/lists/array_list.h"
 #include "EDAs/stacks/array_stack.h"
+#include "EDAs/queues/array_queue.h"
 
 int main() {
     clean;
@@ -36,7 +37,22 @@ int main() {
     stack_of_integers.clear();
     stack_of_integers.show();
     */
-    
+
+    /*
+    ArrayQueue<int> queue_of_integers;
+    queue_of_integers.show();
+    queue_of_integers.enqueue(1);
+    queue_of_integers.enqueue(2);
+    queue_of_integers.enqueue(3);
+    queue_of_integers.show();
+    queue_of_integers.dequeue();
+    queue_of_integers.show();
+    queue_of_integers.clear();
+    queue_of_integers.show();
+    */
+
+
+   
     pause();
     return 0;
 }

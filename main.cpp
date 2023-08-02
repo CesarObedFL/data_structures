@@ -9,6 +9,7 @@
 #include "EDAs/lists/array_list.h"
 #include "EDAs/stacks/array_stack.h"
 #include "EDAs/queues/array_queue.h"
+#include "EDAs/node.h"
 
 int main() {
     clean;
@@ -52,8 +53,24 @@ int main() {
     queue_of_integers.show();
     */
 
+    /*
+    Node<int>* second_integer_node = new Node<int>(20, NULL);
+    Node<int>* first_integer_node = new Node<int>(10, second_integer_node);
+    Node<int>* third_integer_node = new Node<int>();
+    third_integer_node->set_value(30);
+    second_integer_node->set_next(third_integer_node);
+    cout << first_integer_node->get_value() << endl;
+    cout << first_integer_node->get_next()->get_value() << endl;
+    cout << second_integer_node->get_value() << endl;
+    cout << second_integer_node->get_next()->get_value() << endl;
+    cout << third_integer_node->get_value() << endl;
 
-   
+    delete(first_integer_node);
+    delete(second_integer_node);
+    delete(third_integer_node);
+    */
+
+
     pause();
     return 0;
 }

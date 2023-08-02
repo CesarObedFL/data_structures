@@ -12,7 +12,8 @@
 
 int main() {
     clean;
-    print_data_types();
+    
+    //print_data_types();
 
     //chronometer();
 

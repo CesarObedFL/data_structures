@@ -4,12 +4,12 @@
 #include <cfloat>
 
 #include "assets/utils.h"
-#include "algoritms/data_types.h"
-#include "algoritms/chronometer.h"
-#include "EDAs/lists/array_list.h"
-#include "EDAs/stacks/array_stack.h"
-#include "EDAs/queues/array_queue.h"
-#include "EDAs/node.h"
+#include "algorithms/data_types.h"
+#include "algorithms/chronometer.h"
+#include "DSAs/lists/array_list.h"
+#include "DSAs/stacks/array_stack.h"
+#include "DSAs/queues/array_queue.h"
+#include "DSAs/node.h"
 
 int main() {
     clean;

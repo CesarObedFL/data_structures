@@ -6,6 +6,7 @@ class Node {
 	private:
 	    T value;
 		Node *next;
+		Node *previous;
 
 	public:
 
@@ -18,6 +19,18 @@ class Node {
 		T get_value();
 		void set_next(Node<T>* n);
 		Node<T>* get_next();
+
+		// Sobrecarga del operador de entrada (>>)
+		friend std::istream& operator>>(std::istream& is, Node& node) {
+			is >> node.value;
+			return is;
+		}
+
+		// Sobrecarga del operador de salida (<<)
+		friend std::ostream& operator<<(std::ostream& os, const Node& node) {
+			os << node.value << endl;
+			return os;
+		}
 
 };
 

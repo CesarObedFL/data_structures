@@ -9,7 +9,7 @@
 #include "DSAs/lists/array_list.h"
 #include "DSAs/stacks/array_stack.h"
 #include "DSAs/queues/array_queue.h"
-#include "DSAs/node.h"
+#include "DSAs/objects/node.h"
 
 int main() {
     clean;

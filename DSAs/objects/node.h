@@ -20,13 +20,13 @@ class Node {
 		void set_next(Node<T>* n);
 		Node<T>* get_next();
 
-		// Sobrecarga del operador de entrada (>>)
+		// istream operator overload (>>)
 		friend std::istream& operator>>(std::istream& is, Node<T>* node) {
 			is >> node->value;
 			return is;
 		}
 
-		// Sobrecarga del operador de salida (<<)
+		// ostream operator overload (<<)
 		friend std::ostream& operator<<(std::ostream& os, const Node<T>* node) {
 			os << node->value << endl;
 			return os;

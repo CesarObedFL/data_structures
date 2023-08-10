@@ -6,7 +6,6 @@ class Node {
 	private:
 	    T value;
 		Node *next;
-		Node *previous;
 
 	public:
 

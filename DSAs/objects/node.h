@@ -21,14 +21,14 @@ class Node {
 		Node<T>* get_next();
 
 		// Sobrecarga del operador de entrada (>>)
-		friend std::istream& operator>>(std::istream& is, Node& node) {
-			is >> node.value;
+		friend std::istream& operator>>(std::istream& is, Node<T>* node) {
+			is >> node->value;
 			return is;
 		}
 
 		// Sobrecarga del operador de salida (<<)
-		friend std::ostream& operator<<(std::ostream& os, const Node& node) {
-			os << node.value << endl;
+		friend std::ostream& operator<<(std::ostream& os, const Node<T>* node) {
+			os << node->value << endl;
 			return os;
 		}
 

@@ -53,22 +53,23 @@ int main() {
     queue_of_integers.show();
     */
 
-    /*
+    
     Node<int>* second_integer_node = new Node<int>(20, NULL);
     Node<int>* first_integer_node = new Node<int>(10, second_integer_node);
     Node<int>* third_integer_node = new Node<int>();
-    third_integer_node->set_value(30);
+    cout << "Enter the third node value: " ;
+    cin >> third_integer_node;
     second_integer_node->set_next(third_integer_node);
-    cout << first_integer_node->get_value() << endl;
-    cout << first_integer_node->get_next()->get_value() << endl;
-    cout << second_integer_node->get_value() << endl;
-    cout << second_integer_node->get_next()->get_value() << endl;
-    cout << third_integer_node->get_value() << endl;
+    cout << first_integer_node << endl;
+    cout << first_integer_node->get_next() << endl;
+    cout << second_integer_node << endl;
+    cout << second_integer_node->get_next() << endl;
+    cout << third_integer_node << endl;
 
     delete(first_integer_node);
     delete(second_integer_node);
     delete(third_integer_node);
-    */
+    
 
 
     pause();

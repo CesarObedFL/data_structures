@@ -4,11 +4,15 @@
 #include <cfloat>
 
 #include "assets/utils.h"
+
 #include "algorithms/data_types.h"
 #include "algorithms/chronometer.h"
+
 #include "DSAs/lists/array_list.h"
 #include "DSAs/stacks/array_stack.h"
+#include "DSAs/stacks/linked_stack.h"
 #include "DSAs/queues/array_queue.h"
+
 #include "DSAs/objects/node.h"
 
 int main() {
@@ -53,7 +57,7 @@ int main() {
     queue_of_integers.show();
     */
 
-    
+    /*
     Node<int>* second_integer_node = new Node<int>(20, NULL);
     Node<int>* first_integer_node = new Node<int>(10, second_integer_node);
     Node<int>* third_integer_node = new Node<int>();
@@ -69,8 +73,24 @@ int main() {
     delete(first_integer_node);
     delete(second_integer_node);
     delete(third_integer_node);
-    
+    */
 
+    LinkedStack<int> linked_stack_of_integers;
+    linked_stack_of_integers.show();
+    linked_stack_of_integers.push(new Node<int>(1,NULL));
+    linked_stack_of_integers.push(new Node<int>(2,NULL));
+    linked_stack_of_integers.push(new Node<int>(3,NULL));
+    linked_stack_of_integers.push(new Node<int>(4,NULL));
+    linked_stack_of_integers.show();
+    linked_stack_of_integers.pop();
+    linked_stack_of_integers.show();
+    linked_stack_of_integers.pop();
+    linked_stack_of_integers.show();
+    linked_stack_of_integers.clear();
+    linked_stack_of_integers.show();
+
+
+    
 
     pause();
     return 0;

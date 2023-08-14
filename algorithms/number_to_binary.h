@@ -6,14 +6,16 @@
 
 
 string transform_number_to_binary(unsigned int number) {
-    unsigned int counter = 128;
+    unsigned long long counter = 1ULL << 63;
     string string_number;
 
-    for (counter; counter > 0; counter >>=1) {
+    for (int i = 0; i < 64; ++i) {
         if (counter & number) 
             string_number += "1";
         else 
             string_number += "0";
+
+        counter >>= 1;
     }
 
     return string_number;

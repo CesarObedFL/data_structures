@@ -7,6 +7,7 @@
 
 #include "algorithms/data_types.h"
 #include "algorithms/chronometer.h"
+#include "algorithms/number_to_binary.h"
 
 #include "DSAs/lists/array_list.h"
 #include "DSAs/stacks/array_stack.h"
@@ -75,6 +76,7 @@ int main() {
     delete(third_integer_node);
     */
 
+    /*
     LinkedStack<int> linked_stack_of_integers;
     linked_stack_of_integers.show();
     linked_stack_of_integers.push(new Node<int>(1,NULL));
@@ -88,7 +90,12 @@ int main() {
     linked_stack_of_integers.show();
     linked_stack_of_integers.clear();
     linked_stack_of_integers.show();
+    */
 
+    cout << "8: " << transform_number_to_binary(8) << endl;
+    cout << "1425: " << transform_number_to_binary(1425) << endl;
+    cout << "432158: " << transform_number_to_binary(432158) << endl;
+    cout << "13423414: " << transform_number_to_binary(13423414) << endl;
 
     
 

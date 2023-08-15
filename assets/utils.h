@@ -19,4 +19,20 @@ void pause() {
 }
 
 
+bool question(string pregunta) {
+    char option;
+    bool isValidChar = false;
+    do {
+        cout << endl << pregunta << "  (y/n) : ";
+        cin >> option;
+
+        if (option == 'y' || option == 'Y' || option == 'n' || option == 'N')
+                isValidChar = true;
+        else
+                cout << endl << "Invalid Option..." << endl;
+
+    }  while (!isValidChar);
+    return (option == 'y' || option == 'Y') ? true : false;
+}
+
 #endif // utils

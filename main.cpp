@@ -92,12 +92,20 @@ int main() {
     linked_stack_of_integers.show();
     */
 
+    /*
     cout << "8: " << transform_number_to_binary(8) << endl;
     cout << "1425: " << transform_number_to_binary(1425) << endl;
     cout << "432158: " << transform_number_to_binary(432158) << endl;
     cout << "13423414: " << transform_number_to_binary(13423414) << endl;
+    */
 
-    
+    do {
+        clean;
+        cout << "working..." << endl;
+    } while ( question("do you want to continue?") );
+
+
+
 
     pause();
     return 0;

@@ -10,9 +10,11 @@
 #include "algorithms/number_to_binary.h"
 
 #include "DSAs/lists/array_list.h"
+#include "DSAs/queues/array_queue.h"
+#include "DSAs/queues/linked_queue.h"
 #include "DSAs/stacks/array_stack.h"
 #include "DSAs/stacks/linked_stack.h"
-#include "DSAs/queues/array_queue.h"
+
 
 #include "DSAs/objects/node.h"
 
@@ -33,6 +35,33 @@ int main() {
     */
 
     /*
+    ArrayQueue<int> queue_of_integers;
+    queue_of_integers.show();
+    queue_of_integers.enqueue(1);
+    queue_of_integers.enqueue(2);
+    queue_of_integers.enqueue(3);
+    queue_of_integers.show();
+    queue_of_integers.dequeue();
+    queue_of_integers.show();
+    queue_of_integers.clear();
+    queue_of_integers.show();
+    */
+
+    LinkedQueue<int> linked_queue_of_integers;
+    linked_queue_of_integers.show();
+    linked_queue_of_integers.enqueue(new Node<int>(1,NULL));
+    linked_queue_of_integers.enqueue(new Node<int>(2,NULL));
+    linked_queue_of_integers.enqueue(new Node<int>(3,NULL));
+    linked_queue_of_integers.enqueue(new Node<int>(4,NULL));
+    linked_queue_of_integers.show();
+    linked_queue_of_integers.dequeue();
+    linked_queue_of_integers.show();
+    linked_queue_of_integers.dequeue();
+    linked_queue_of_integers.show();
+    linked_queue_of_integers.clear();
+    linked_queue_of_integers.show();
+
+    /*
     ArrayStack<int> stack_of_integers;
     stack_of_integers.show();
     stack_of_integers.push(1);
@@ -46,16 +75,19 @@ int main() {
     */
 
     /*
-    ArrayQueue<int> queue_of_integers;
-    queue_of_integers.show();
-    queue_of_integers.enqueue(1);
-    queue_of_integers.enqueue(2);
-    queue_of_integers.enqueue(3);
-    queue_of_integers.show();
-    queue_of_integers.dequeue();
-    queue_of_integers.show();
-    queue_of_integers.clear();
-    queue_of_integers.show();
+    LinkedStack<int> linked_stack_of_integers;
+    linked_stack_of_integers.show();
+    linked_stack_of_integers.push(new Node<int>(1,NULL));
+    linked_stack_of_integers.push(new Node<int>(2,NULL));
+    linked_stack_of_integers.push(new Node<int>(3,NULL));
+    linked_stack_of_integers.push(new Node<int>(4,NULL));
+    linked_stack_of_integers.show();
+    linked_stack_of_integers.pop();
+    linked_stack_of_integers.show();
+    linked_stack_of_integers.pop();
+    linked_stack_of_integers.show();
+    linked_stack_of_integers.clear();
+    linked_stack_of_integers.show();
     */
 
     /*
@@ -77,32 +109,18 @@ int main() {
     */
 
     /*
-    LinkedStack<int> linked_stack_of_integers;
-    linked_stack_of_integers.show();
-    linked_stack_of_integers.push(new Node<int>(1,NULL));
-    linked_stack_of_integers.push(new Node<int>(2,NULL));
-    linked_stack_of_integers.push(new Node<int>(3,NULL));
-    linked_stack_of_integers.push(new Node<int>(4,NULL));
-    linked_stack_of_integers.show();
-    linked_stack_of_integers.pop();
-    linked_stack_of_integers.show();
-    linked_stack_of_integers.pop();
-    linked_stack_of_integers.show();
-    linked_stack_of_integers.clear();
-    linked_stack_of_integers.show();
-    */
-
-    /*
     cout << "8: " << transform_number_to_binary(8) << endl;
     cout << "1425: " << transform_number_to_binary(1425) << endl;
     cout << "432158: " << transform_number_to_binary(432158) << endl;
     cout << "13423414: " << transform_number_to_binary(13423414) << endl;
     */
 
+    /*
     do {
         clean;
         cout << "working..." << endl;
     } while ( question("do you want to continue?") );
+    */
 
 
 

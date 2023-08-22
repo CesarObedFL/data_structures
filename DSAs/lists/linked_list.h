@@ -26,14 +26,13 @@ class LinkedList {
         // functions & methods
         bool is_empty();
         int size();
-        void insert_front();
-        void insert_back();
-        void insert_position();
+        void insert_front(Node<T>*);
+        void insert_back(Node<T>*);
+        void insert_position(Node<T>*, int);
 		void delete_front();
         void delete_back();
-        void delete_position();
-		void edit();
-		void show();
+        void delete_position(int);
+        void edit();
         void clear();
 
 };
@@ -149,18 +148,46 @@ int LinkedList<T>::size() {
 }
 
 template<class T>
-void LinkedList<T>::insert_front() {
+void LinkedList<T>::insert_front(Node<T> *new_item) {
+    if ( is_empty() ) {
+        first = new_item;
 
+    } else {
+        new_item->set_next(first);
+        first = new_item;
+    }
 }
 
 template<class T>
-void LinkedList<T>::insert_back() {
+void LinkedList<T>::insert_back(Node<T> *new_item) {
+    if ( is_empty() ) {
+        first = new_item;
 
+    } else {
+        Node<T> *aux = first;
+        while ( aux->get_next() ) {
+            aux = aux->get_next();
+        }
+        aux->set_next(new_item);
+    }
 }
 
 template<class T>
-void LinkedList<T>::insert_position() {
-
+void LinkedList<T>::insert_position(Node<T> *new_item, int position) {
+    if ( is_empty() ) {
+        first = new_item;
+    } else if ( position > (size() + 1) || position < 0 ) {
+        insert_back(new_item);
+    } else {
+        Node<T> *aux = first;
+        int position_counter = 1;
+        while ( position_counter != position ) {
+            aux = aux->get_next();
+            position_counter++;
+        }
+        new_item->set_next(aux->get_next());
+        aux->set_next(new_item);
+    }
 }
 
 template<class T>
@@ -174,17 +201,12 @@ void LinkedList<T>::delete_back() {
 }
 
 template<class T>
-void LinkedList<T>::delete_position() {
+void LinkedList<T>::delete_position(int position) {
 
 }
 
 template<class T>
 void LinkedList<T>::edit() {
-
-}
-
-template<class T>
-void LinkedList<T>::show() {
 
 }
 

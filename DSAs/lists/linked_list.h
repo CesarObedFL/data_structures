@@ -192,17 +192,46 @@ void LinkedList<T>::insert_position(Node<T> *new_item, int position) {
 
 template<class T>
 void LinkedList<T>::delete_front() {
-
+    if ( !is_empty() ) {
+        Node<T> *aux = first;
+        first = first->get_next();
+        delete(aux);
+    }
 }
 
 template<class T>
 void LinkedList<T>::delete_back() {
-
+    if ( !is_empty() ) {
+        Node<T> *aux = first;
+        while ( aux->get_next() ) {
+            aux = aux->get_next()
+        }
+        previous_item(aux)->set_next(NULL);
+        delete(aux);
+    }
 }
 
 template<class T>
 void LinkedList<T>::delete_position(int position) {
+    if ( !is_empty() && (position > 0 && position <= size()) ) {
 
+        if (position == 1) {
+            delete_front();
+
+        } else if (position == size()) {
+            delete_back();
+
+        } else {
+            Node<T> *aux = first;
+            int position_counter = 1;
+            while (position_counter != position) {
+                aux = aux->get_next();
+                position_counter++;
+            }
+            previous_item(aux)->set_next(next_item(aux));
+            delete(aux);
+        }
+    }
 }
 
 template<class T>

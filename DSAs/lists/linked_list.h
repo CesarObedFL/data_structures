@@ -32,7 +32,6 @@ class LinkedList {
 		void delete_front();
         void delete_back();
         void delete_position(int);
-        void edit();
         void clear();
 
 };
@@ -235,13 +234,17 @@ void LinkedList<T>::delete_position(int position) {
 }
 
 template<class T>
-void LinkedList<T>::edit() {
-
-}
-
-template<class T>
 void LinkedList<T>::clear() {
-
+    if ( !is_empty() ) {
+        Node<T> *auxiliary_node = first;
+        Node<T> *node_to_delete;
+        while ( auxiliary_node ) {
+            node_to_delete = auxiliary_node;
+            auxiliary_node = auxiliary_node->get_next();
+            delete(node_to_delete);
+        }
+        first = NULL;
+    }
 }
 
 

@@ -33,6 +33,7 @@ class LinkedList {
         void delete_back();
         void delete_position(int);
         void clear();
+        void show();
 
 };
 
@@ -247,6 +248,21 @@ void LinkedList<T>::clear() {
     }
 }
 
+template<class T>
+void LinkedList<T>::show() {
+    if ( is_empty() ) {
+        cout << "The list is empty...";
+
+    } else {
+        Node<T> *auxiliary_node = first;
+        int i = 1;
+        while( auxiliary_node ) {
+            cout << i << ".- " << auxiliary_node << endl;
+            auxiliary_node = auxiliary_node->get_next();
+            i++;
+        }
+    }
+}
 
 
 

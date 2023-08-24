@@ -8,7 +8,7 @@
 template<class T>
 class LinkedList {
     private:
-        Node<T> *first;
+        Node<T> *start_node;
 
     public:
         LinkedList();           // construct
@@ -16,10 +16,10 @@ class LinkedList {
         ~LinkedList();          // destruct
 
         // getters methods
-        Node<T>* first_item();
-		Node<T>* last_item();
-		Node<T>* next_item(Node<T>*);
-		Node<T>* previous_item(Node<T>*);
+        Node<T>* first_node();
+		Node<T>* last_node();
+		Node<T>* next_node(Node<T>*);
+		Node<T>* previous_node(Node<T>*);
         Node<T>* recover(unsigned int);
         int locate(Node<T>*);
 
@@ -39,12 +39,12 @@ class LinkedList {
 
 template<class T>
 LinkedList<T>::LinkedList() {
-    first = NULL;
+    start_node = NULL;
 }
 
 template<class T>
 LinkedList<T>::LinkedList(Node<T> *s) {
-    first = s;
+    start_node = s;
 }
 
 template<class T>
@@ -53,44 +53,44 @@ LinkedList<T>::~LinkedList() {
 }
 
 template<class T>
-Node<T>* LinkedList<T>::first_item() {
-    return first;
+Node<T>* LinkedList<T>::first_node() {
+    return start_node;
 }
 
 template<class T>
-Node<T>* LinkedList<T>::last_item() {
-    Node<T> *aux = first;
-    while( aux->get_next() ) {
-        aux = aux->get_next();
+Node<T>* LinkedList<T>::last_node() {
+    Node<T> *auxiliary_node = first_node();
+    while( auxiliary_node->get_next() ) {
+        auxiliary_node = auauxiliary_nodex->get_next();
     }
-    return aux;
+    return auxiliary_node;
 }
 
 template<class T>
-Node<T>* LinkedList<T>::next_item(Node<T> *actual_item) {
+Node<T>* LinkedList<T>::next_node(Node<T> *actual_node) {
     if ( is_empty() ) {
         return NULL;
 
     } else {
-        Node<T> *aux = first;
-        while (aux != actual_item) {
-            aux = aux->get_next();
+        Node<T> *auxiliary_node = first_node();
+        while (auxiliary_node != actual_node) {
+            auxiliary_node = auxiliary_node->get_next();
         }
-        return aux->get_next();
+        return auxiliary_node->get_next();
     }
 }
 
 template<class T>
-Node<T>* LinkedList<T>::previous_item(Node<T> *actual_item) {
+Node<T>* LinkedList<T>::previous_node(Node<T> *actual_node) {
     if ( is_empty() ) {
         return NULL;
 
     } else {
-        Node<T> *aux = first;
-        while ( aux->get_next() != actual_item) {
-            aux = aux->get_next();
+        Node<T> *auxiliary_node = first_node();
+        while ( auxiliary_node->get_next() != actual_node) {
+            auxiliary_node = auxiliary_node->get_next();
         }
-        return aux;
+        return auxiliary_node;
     }
 }
 
@@ -100,35 +100,35 @@ Node<T>* LinkedList<T>::recover(unsigned int position) {
         return NULL;
     
     } else {
-        Node<T> *aux = first;
-        unsigned int counter = 1;
-        while (counter != position) {
-            aux = aux->get_next();
-            counter++;
+        Node<T> *auxiliary_node = first_node();
+        unsigned int position_counter = 1;
+        while (position_counter != position) {
+            auxiliary_node = auxiliary_node->get_next();
+            position_counter++;
         }
-        return aux;
+        return auxiliary_node;
     }
 }
 
 template<class T>
-int LinkedList<T>::locate(Node<T> *item) {
+int LinkedList<T>::locate(Node<T> *node) {
     if ( is_empty() ) {
         return 0;
     
     } else {
-        Node<T> *aux = first;
-        int position = 1;
-        while (aux != item) {
-            aux = aux->get_next();
-            position++;
+        Node<T> *auxiliary_node = first_node();
+        int position_counter = 1;
+        while (auxiliary_node != node) {
+            auxiliary_node = auxiliary_node->get_next();
+            position_counter++;
         }
-        return position;
+        return position_counter;
     }
 }
 
 template<class T>
 bool LinkedList<T>::is_empty() {
-    return start == NULL;
+    return first_node() == NULL;
 }
 
 template<class T>
@@ -136,78 +136,80 @@ int LinkedList<T>::size() {
     if ( is_empty() ) {
         return 0;
     } else {
-        Node<T> *aux = first;
+        Node<T> *auxiliary_node = first_node();
         int size = 0;
-        while ( aux->get_next() ) {
-            aux = aux->get_next();
+        while ( auxiliary_node->get_next() ) {
+            auxiliary_node = auxiliary_node->get_next();
             size++;
         }
-        delete(aux);
+        delete(auxiliary_node);
         return size;
     }
 }
 
 template<class T>
-void LinkedList<T>::insert_front(Node<T> *new_item) {
+void LinkedList<T>::insert_front(Node<T> *new_node) {
     if ( is_empty() ) {
-        first = new_item;
+        start_node = new_node;
 
     } else {
-        new_item->set_next(first);
-        first = new_item;
+        new_node->set_next(first_node());
+        start_node = new_node;
     }
 }
 
 template<class T>
-void LinkedList<T>::insert_back(Node<T> *new_item) {
+void LinkedList<T>::insert_back(Node<T> *new_node) {
     if ( is_empty() ) {
-        first = new_item;
+        start_node = new_node;
 
     } else {
-        Node<T> *aux = first;
-        while ( aux->get_next() ) {
-            aux = aux->get_next();
+        Node<T> *auxiliary_node = first_node();
+        while ( auxiliary_node->get_next() ) {
+            auxiliary_node = auxiliary_node->get_next();
         }
-        aux->set_next(new_item);
+        auxiliary_node->set_next(new_node);
     }
 }
 
 template<class T>
-void LinkedList<T>::insert_position(Node<T> *new_item, int position) {
+void LinkedList<T>::insert_position(Node<T> *new_node, int position) {
     if ( is_empty() ) {
-        first = new_item;
+        start_node = new_node;
+
     } else if ( position > (size() + 1) || position < 0 ) {
-        insert_back(new_item);
+        insert_back(new_node);
+
     } else {
-        Node<T> *aux = first;
+        Node<T> *auxiliary_node = first_node();
         int position_counter = 1;
         while ( position_counter != position ) {
-            aux = aux->get_next();
+            auxiliary_node = auxiliary_node->get_next();
             position_counter++;
         }
-        new_item->set_next(aux->get_next());
-        aux->set_next(new_item);
+        new_node->set_next(auxiliary_node->get_next());
+        auxiliary_node->set_next(new_node);
     }
 }
 
 template<class T>
 void LinkedList<T>::delete_front() {
     if ( !is_empty() ) {
-        Node<T> *aux = first;
-        first = first->get_next();
-        delete(aux);
+        Node<T> *auxiliary_node = first_node();
+        first_node = first_node->get_next();
+        delete(auxiliary_node);
     }
 }
 
 template<class T>
 void LinkedList<T>::delete_back() {
     if ( !is_empty() ) {
-        Node<T> *aux = first;
-        while ( aux->get_next() ) {
-            aux = aux->get_next()
+        Node<T> *auxiliary_node = first_node();
+        while ( auxiliary_node->get_next() ) {
+            auxiliary_node = auxiliary_node->get_next()
         }
-        previous_item(aux)->set_next(NULL);
-        delete(aux);
+        previous_node(auxiliary_node)->set_next(NULL);
+        delete(auxiliary_node);
     }
 }
 
@@ -222,14 +224,14 @@ void LinkedList<T>::delete_position(int position) {
             delete_back();
 
         } else {
-            Node<T> *aux = first;
+            Node<T> *auxiliary_node = first_node();
             int position_counter = 1;
             while (position_counter != position) {
-                aux = aux->get_next();
+                auxiliary_node = auxiliary_node->get_next();
                 position_counter++;
             }
-            previous_item(aux)->set_next(next_item(aux));
-            delete(aux);
+            previous_node(auxiliary_node)->set_next(next_node(auxiliary_node));
+            delete(auxiliary_node);
         }
     }
 }
@@ -237,14 +239,14 @@ void LinkedList<T>::delete_position(int position) {
 template<class T>
 void LinkedList<T>::clear() {
     if ( !is_empty() ) {
-        Node<T> *auxiliary_node = first;
+        Node<T> *auxiliary_node = first_node();
         Node<T> *node_to_delete;
         while ( auxiliary_node ) {
             node_to_delete = auxiliary_node;
             auxiliary_node = auxiliary_node->get_next();
             delete(node_to_delete);
         }
-        first = NULL;
+        first_node = NULL;
     }
 }
 
@@ -254,12 +256,12 @@ void LinkedList<T>::show() {
         cout << "The list is empty...";
 
     } else {
-        Node<T> *auxiliary_node = first;
-        int i = 1;
+        Node<T> *auxiliary_node = first_node();
+        int index = 1;
         while( auxiliary_node ) {
-            cout << i << ".- " << auxiliary_node << endl;
+            cout << index << ".- " << auxiliary_node << endl;
             auxiliary_node = auxiliary_node->get_next();
-            i++;
+            index++;
         }
     }
 }

@@ -71,6 +71,9 @@ Node<T>* LinkedList<T>::next_node(Node<T> *actual_node) {
     if ( is_empty() ) {
         return NULL;
 
+    } else if ( actual_node == last_node() ) {
+        return NULL;
+
     } else {
         Node<T> *auxiliary_node = first_node();
         while (auxiliary_node != actual_node) {
@@ -83,6 +86,9 @@ Node<T>* LinkedList<T>::next_node(Node<T> *actual_node) {
 template<class T>
 Node<T>* LinkedList<T>::previous_node(Node<T> *actual_node) {
     if ( is_empty() ) {
+        return NULL;
+
+    } else if ( actual_node == first_node() ) {
         return NULL;
 
     } else {
@@ -135,14 +141,14 @@ template<class T>
 int LinkedList<T>::size() {
     if ( is_empty() ) {
         return 0;
+
     } else {
         Node<T> *auxiliary_node = first_node();
-        int size = 0;
+        int size = 1;
         while ( auxiliary_node->get_next() ) {
             auxiliary_node = auxiliary_node->get_next();
             size++;
         }
-        delete(auxiliary_node);
         return size;
     }
 }
@@ -177,18 +183,18 @@ void LinkedList<T>::insert_position(Node<T> *new_node, int position) {
     if ( is_empty() ) {
         start_node = new_node;
 
-    } else if ( position > (size() + 1) || position < 0 ) {
+    } else if ( position < 0 && position > size() ) {
         insert_back(new_node);
 
     } else {
         Node<T> *auxiliary_node = first_node();
         int position_counter = 1;
-        while ( position_counter != position ) {
+        while ( position_counter < position ) {
             auxiliary_node = auxiliary_node->get_next();
             position_counter++;
         }
-        new_node->set_next(auxiliary_node->get_next());
-        auxiliary_node->set_next(new_node);
+        previous_node(auxiliary_node)->set_next(new_node);
+        new_node->set_next(auxiliary_node);
     }
 }
 

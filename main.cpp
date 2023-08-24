@@ -47,6 +47,7 @@ int main() {
     queue_of_integers.show();
     */
 
+    /*
     LinkedQueue<int> linked_queue_of_integers;
     linked_queue_of_integers.show();
     linked_queue_of_integers.enqueue(new Node<int>(1,NULL));
@@ -60,6 +61,7 @@ int main() {
     linked_queue_of_integers.show();
     linked_queue_of_integers.clear();
     linked_queue_of_integers.show();
+    */
 
     /*
     ArrayStack<int> stack_of_integers;

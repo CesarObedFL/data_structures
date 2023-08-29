@@ -2,22 +2,22 @@
 #define LINKED_STACK_H
 
 #include "../../assets/utils.h"
-#include "../objects/node.h"
+#include "../objects/simple_node.h"
 
 template<class T>
 class LinkedStack {
 	private:
-		Node<T> *top;
+		SimpleNode<T> *top;
 
 	public:
         LinkedStack();          // constructor
-        LinkedStack(Node<T>*);  // constructor
+        LinkedStack(SimpleNode<T>*);  // constructor
         ~LinkedStack();         // destructor 
 
         // action functions
         bool is_empty();
-        void push(Node<T>*);
-        Node<T>* pop();
+        void push(SimpleNode<T>*);
+        SimpleNode<T>* pop();
         void clear();
         void show();
 
@@ -29,7 +29,7 @@ LinkedStack<T>::LinkedStack() {
 }
 
 template<class T>
-LinkedStack<T>::LinkedStack(Node<T> *t) {
+LinkedStack<T>::LinkedStack(SimpleNode<T> *t) {
     top = t;
 }
 
@@ -44,7 +44,7 @@ bool LinkedStack<T>::is_empty() {
 }
 
 template<class T>
-void LinkedStack<T>::push(Node<T> *new_item) {
+void LinkedStack<T>::push(SimpleNode<T> *new_item) {
     if ( !is_empty() ) {
         new_item->set_next(top);
         top = new_item;
@@ -54,7 +54,7 @@ void LinkedStack<T>::push(Node<T> *new_item) {
 }
 
 template<class T>
-Node<T>* LinkedStack<T>::pop() {
+SimpleNode<T>* LinkedStack<T>::pop() {
     if ( !is_empty() ) {
         Node<T> *aux = top;
         top = top->get_next();

@@ -2,22 +2,22 @@
 #define LINKED_QUEUE_H
 
 #include "../../assets/utils.h"
-#include "../objects/node.h"
+#include "../objects/simple_node.h"
 
 template <class T>
 class LinkedQueue {
 	private:
-        Node<T> *first;
+        SimpleNode<T> *first;
 
 	public:
         LinkedQueue();          // constructor
-        LinkedQueue(Node<T>*);  // constructor
+        LinkedQueue(SimpleNode<T>*);  // constructor
         ~LinkedQueue();         // destructor
         
         // action functions
         bool is_empty();
-        void enqueue(Node<T>*);
-        Node<T>* dequeue();
+        void enqueue(SimpleNode<T>*);
+        SimpleNode<T>* dequeue();
         void clear();
         void show();
 
@@ -29,7 +29,7 @@ LinkedQueue<T>::LinkedQueue() {
 }
 
 template<class T>
-LinkedQueue<T>::LinkedQueue(Node<T> *f) {
+LinkedQueue<T>::LinkedQueue(SimpleNode<T> *f) {
     first = f;
 }
 
@@ -44,11 +44,11 @@ bool LinkedQueue<T>::is_empty() {
 }
 
 template <class T>
-void LinkedQueue<T>::enqueue(Node<T> *new_item) {
+void LinkedQueue<T>::enqueue(SimpleNode<T> *new_item) {
     if ( is_empty() ) {
         first = new_item;
     } else {
-        Node<T> *aux = first;
+        SimpleNode<T> *aux = first;
         while (aux->get_next()) {
             aux = aux->get_next();
         }
@@ -57,7 +57,7 @@ void LinkedQueue<T>::enqueue(Node<T> *new_item) {
 }
 
 template <class T>
-Node<T>* LinkedQueue<T>::dequeue() {
+SimpleNode<T>* LinkedQueue<T>::dequeue() {
     if ( !is_empty() ) {
         Node<T>* item = first;
         first = first->get_next();

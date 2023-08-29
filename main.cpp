@@ -17,7 +17,7 @@
 #include "DSAs/stacks/linked_stack.h"
 
 
-#include "DSAs/objects/node.h"
+#include "DSAs/objects/simple_node.h"
 
 int main() {
     clean;
@@ -35,6 +35,7 @@ int main() {
     list_of_integers.print_list();
     */
 
+    /*
     LinkedList<int> list_of_integers;
     list_of_integers.show();
     list_of_integers.insert_front(new Node<int>(10, NULL));
@@ -59,6 +60,7 @@ int main() {
     list_of_integers.show();
     list_of_integers.clear();
     list_of_integers.show();
+    */
 
     /*
     ArrayQueue<int> queue_of_integers;

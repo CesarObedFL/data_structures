@@ -27,7 +27,11 @@ class SimpleNode {
 
 		// ostream operator overload (<<)
 		friend std::ostream& operator<<(std::ostream& os, const SimpleNode<T>* node) {
-			os << node->value << endl;
+			if ( node ) {
+				os << node->value << endl;
+			} else {
+				os << "NULL" << endl;
+			}
 			return os;
 		}
 

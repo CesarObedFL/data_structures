@@ -30,7 +30,11 @@ class DoubleNode {
 
 		// ostream operator overload (<<)
 		friend std::ostream& operator<<(std::ostream& os, const DoubleNode<T>* this_node) {
-			os << this_node->value << endl;
+			if ( this_node ) {
+				os << this_node->value << endl;
+			} else {
+				os << "NULL" << endl;
+			}
 			return os;
 		}
 

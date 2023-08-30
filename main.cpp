@@ -11,13 +11,15 @@
 
 #include "DSAs/lists/array_list.h"
 #include "DSAs/lists/linked_list.h"
+
 #include "DSAs/queues/array_queue.h"
 #include "DSAs/queues/linked_queue.h"
+
 #include "DSAs/stacks/array_stack.h"
 #include "DSAs/stacks/linked_stack.h"
 
-
 #include "DSAs/objects/simple_node.h"
+#include "DSAs/objects/double_node.h"
 
 int main() {
     clean;
@@ -121,9 +123,9 @@ int main() {
     */
 
     /*
-    Node<int>* second_integer_node = new Node<int>(20, NULL);
-    Node<int>* first_integer_node = new Node<int>(10, second_integer_node);
-    Node<int>* third_integer_node = new Node<int>();
+    SimpleNode<int>* second_integer_node = new SimpleNode<int>(20, NULL);
+    SimpleNode<int>* first_integer_node = new SimpleNode<int>(10, second_integer_node);
+    SimpleNode<int>* third_integer_node = new SimpleNode<int>();
     cout << "Enter the third node value: " ;
     cin >> third_integer_node;
     second_integer_node->set_next(third_integer_node);
@@ -137,6 +139,23 @@ int main() {
     delete(second_integer_node);
     delete(third_integer_node);
     */
+
+    DoubleNode<int>* second_integer_node = new DoubleNode<int>(20, NULL, NULL);
+    DoubleNode<int>* first_integer_node = new DoubleNode<int>(10, second_integer_node, NULL);
+    DoubleNode<int>* third_integer_node = new DoubleNode<int>();
+    cout << "Enter the third node value: " ;
+    cin >> third_integer_node;
+    cout << endl;
+    second_integer_node->set_previous(first_integer_node);
+    second_integer_node->set_next(third_integer_node);
+    third_integer_node->set_previous(second_integer_node);
+    cout << "first node value: " << first_integer_node << "previous node value: " << first_integer_node->get_previous() << "next node value: " << first_integer_node->get_next() << endl;
+    cout << "second node value: " << second_integer_node << "previous node value: " << second_integer_node->get_previous() << "next node value: " << second_integer_node->get_next() << endl;
+    cout << "third node value: " << third_integer_node << "previous node value: " << third_integer_node->get_previous() << "next node value: " << third_integer_node->get_next() << endl;
+
+    delete(first_integer_node);
+    delete(second_integer_node);
+    delete(third_integer_node);
 
     /*
     cout << "8: " << transform_number_to_binary(8) << endl;

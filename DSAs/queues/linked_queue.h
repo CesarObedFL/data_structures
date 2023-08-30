@@ -59,7 +59,7 @@ void LinkedQueue<T>::enqueue(SimpleNode<T> *new_item) {
 template <class T>
 SimpleNode<T>* LinkedQueue<T>::dequeue() {
     if ( !is_empty() ) {
-        Node<T>* item = first;
+        SimpleNode<T>* item = first;
         first = first->get_next();
         return item;
     } else {
@@ -71,7 +71,7 @@ template <class T>
 void LinkedQueue<T>::clear() {
     if ( !is_empty() ) {
         while( first ) {
-            Node<T> *aux = first;
+            SimpleNode<T> *aux = first;
             first = first->get_next();
             delete (aux);
         }
@@ -84,7 +84,7 @@ void LinkedQueue<T>::show() {
         cout << "The queue is empty...";
 
     } else {
-        Node<T> *aux = first;
+        SimpleNode<T> *aux = first;
         int i = 1;
         while ( aux ) {
             cout << i << ".- " << aux << endl;

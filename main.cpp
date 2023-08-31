@@ -41,12 +41,12 @@ int main() {
     /*
     LinkedList<int> list_of_integers;
     list_of_integers.show();
-    list_of_integers.insert_front(new Node<int>(10, NULL));
-    list_of_integers.insert_back(new Node<int>(9, NULL));
-    list_of_integers.insert_front(new Node<int>(8, NULL));
-    list_of_integers.insert_back(new Node<int>(7, NULL));
+    list_of_integers.insert_front(new SimpleNode<int>(10, NULL));
+    list_of_integers.insert_back(new SimpleNode<int>(9, NULL));
+    list_of_integers.insert_front(new SimpleNode<int>(8, NULL));
+    list_of_integers.insert_back(new SimpleNode<int>(7, NULL));
     list_of_integers.show();
-    list_of_integers.insert_position(new Node<int>(6, NULL), 3);
+    list_of_integers.insert_position(new SimpleNode<int>(6, NULL), 3);
     list_of_integers.show();
     cout << "size: " << list_of_integers.size() << endl;
     cout << "first node: " << list_of_integers.first_node() << endl;
@@ -108,10 +108,10 @@ int main() {
     /*
     LinkedQueue<int> linked_queue_of_integers;
     linked_queue_of_integers.show();
-    linked_queue_of_integers.enqueue(new Node<int>(1,NULL));
-    linked_queue_of_integers.enqueue(new Node<int>(2,NULL));
-    linked_queue_of_integers.enqueue(new Node<int>(3,NULL));
-    linked_queue_of_integers.enqueue(new Node<int>(4,NULL));
+    linked_queue_of_integers.enqueue(new SimpleNode<int>(1,NULL));
+    linked_queue_of_integers.enqueue(new SimpleNode<int>(2,NULL));
+    linked_queue_of_integers.enqueue(new SimpleNode<int>(3,NULL));
+    linked_queue_of_integers.enqueue(new SimpleNode<int>(4,NULL));
     linked_queue_of_integers.show();
     linked_queue_of_integers.dequeue();
     linked_queue_of_integers.show();
@@ -137,10 +137,10 @@ int main() {
     /*
     LinkedStack<int> linked_stack_of_integers;
     linked_stack_of_integers.show();
-    linked_stack_of_integers.push(new Node<int>(1,NULL));
-    linked_stack_of_integers.push(new Node<int>(2,NULL));
-    linked_stack_of_integers.push(new Node<int>(3,NULL));
-    linked_stack_of_integers.push(new Node<int>(4,NULL));
+    linked_stack_of_integers.push(new SimpleNode<int>(1,NULL));
+    linked_stack_of_integers.push(new SimpleNode<int>(2,NULL));
+    linked_stack_of_integers.push(new SimpleNode<int>(3,NULL));
+    linked_stack_of_integers.push(new SimpleNode<int>(4,NULL));
     linked_stack_of_integers.show();
     linked_stack_of_integers.pop();
     linked_stack_of_integers.show();

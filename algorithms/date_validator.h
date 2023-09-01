@@ -93,7 +93,7 @@ int Date::get_day () {
 }
 
 bool Date::date_validator() {
-    if (this->day < _MINIMUM_DAY_ || this->day > _MAXIMUM_DAY_ && this->month < JAN || this->month > DEC)  {
+    if (this->day < _MINIMUM_DAY_ || this->day > _MAXIMUM_DAY_ || this->month < JAN || this->month > DEC)  {
 		return false;
 
 	} else {

@@ -5,13 +5,15 @@
 
 #include "assets/utils.h"
 
-#include "algorithms/data_types.h"
+
 #include "algorithms/chronometer.h"
+#include "algorithms/data_types.h"
+#include "algorithms/date_validator.h"
 #include "algorithms/number_to_binary.h"
 
 #include "DSAs/lists/array_list.h"
-#include "DSAs/lists/linked_list.h"
 #include "DSAs/lists/double_linked_list.h"
+#include "DSAs/lists/linked_list.h"
 
 #include "DSAs/queues/array_queue.h"
 #include "DSAs/queues/linked_queue.h"
@@ -19,8 +21,9 @@
 #include "DSAs/stacks/array_stack.h"
 #include "DSAs/stacks/linked_stack.h"
 
-#include "DSAs/objects/simple_node.h"
 #include "DSAs/objects/double_node.h"
+#include "DSAs/objects/simple_node.h"
+
 
 int main() {
     clean;
@@ -65,6 +68,7 @@ int main() {
     list_of_integers.show();
     */
 
+    /*
     DoubleLinkedList<int> list_of_integers;
     list_of_integers.show();
     list_of_integers.insert_front(new DoubleNode<int>(9, NULL, NULL));
@@ -91,6 +95,7 @@ int main() {
     list_of_integers.show();
     list_of_integers.clear();
     list_of_integers.show();
+    */
 
     /*
     ArrayQueue<int> queue_of_integers;
@@ -200,6 +205,27 @@ int main() {
         cout << "working..." << endl;
     } while ( question("do you want to continue?") );
     */
+
+    Date* date_1 = new Date(2023, 9, 1);
+    Date* date_2 = new Date(2000, 1, 31);
+    Date* date_3 = new Date(1978, 6, 0);
+    Date* date_4 = new Date(2050, 12, 24);
+    Date* date_5 = new Date(2023, 13, 1);
+    Date* date_6 = new Date(1890, 2, 29);
+    Date* date_7 = new Date(2012, 2, 29);
+    Date* date_8 = new Date(1991, 12, 9);
+    Date* date_9 = new Date(2023, 1, 33);
+    Date* date_10 = new Date(1, 1, 1);
+    cout << date_1 << " : " << date_1->date_validator() << endl;
+    cout << date_2 << " : " << date_2->date_validator() << endl;
+    cout << date_3 << " : " << date_3->date_validator() << endl;
+    cout << date_4 << " : " << date_4->date_validator() << endl;
+    cout << date_5 << " : " << date_5->date_validator() << endl;
+    cout << date_6 << " : " << date_6->date_validator() << endl;
+    cout << date_7 << " : " << date_7->date_validator() << endl;
+    cout << date_8 << " : " << date_8->date_validator() << endl;
+    cout << date_9 << " : " << date_9->date_validator() << endl;
+    cout << date_10 << " : " << date_10->date_validator() << endl;
 
 
 

@@ -36,7 +36,9 @@ class Date {
 
         // istream operator overload (>>)
 		friend std::istream& operator>>(std::istream& is, Date* date) {
-			is >> date->year >> date->month >> date->day;
+			cout << "year: "; is >> date->year;
+			cout << "month: "; is >> date->month;
+			cout << "day: "; is >> date->day;
 			return is;
 		}
 

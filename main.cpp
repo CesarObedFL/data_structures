@@ -205,17 +205,17 @@ int main() {
         cout << "working..." << endl;
     } while ( question("do you want to continue?") );
     */
-
-    Date* date_1 = new Date(2023, 9, 1);
-    Date* date_2 = new Date(2000, 1, 31);
-    Date* date_3 = new Date(1978, 6, 0);
-    Date* date_4 = new Date(2050, 12, 24);
+    
+    Date* date_1 = new Date(2023, 9, 1, 1);
+    Date* date_2 = new Date(2000, 1, 31, 2);
+    Date* date_3 = new Date(1978, 6, 0, 1);
+    Date* date_4 = new Date(2050, 12, 24, 2);
     Date* date_5 = new Date(2023, 13, 1);
     Date* date_6 = new Date(1890, 2, 29);
-    Date* date_7 = new Date(2012, 2, 29);
+    Date* date_7 = new Date(2012, 2, 29, 2);
     Date* date_8 = new Date(1991, 12, 9);
-    Date* date_9 = new Date(2023, 1, 33);
-    Date* date_10 = new Date(1, 1, 1);
+    Date* date_9 = new Date(2023, 1, 33, 2);
+    Date* date_10 = new Date(1, 1, 1, 2);
     cout << date_1 << " : " << date_1->date_validator() << endl;
     cout << date_2 << " : " << date_2->date_validator() << endl;
     cout << date_3 << " : " << date_3->date_validator() << endl;
@@ -227,7 +227,8 @@ int main() {
     cout << date_9 << " : " << date_9->date_validator() << endl;
     cout << date_10 << " : " << date_10->date_validator() << endl;
 
-    cin >> date_1; cout << date_1;
+    //cin >> date_1; 
+    //cout << date_1;
 
 
 

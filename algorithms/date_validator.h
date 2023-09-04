@@ -10,7 +10,12 @@
 #define _FEB_TWYENTY_NINE_ 29
 #define ZERO 0
 
-enum months {JAN=1,FEB,MAR,APR,MAY,JUN,JUL,AUG,SEP,OCT,NOV,DEC};
+#define NUMBER_FORMAT 1
+#define STRING_FORMAT 2
+
+enum MONTHS {JAN=1,FEB,MAR,APR,MAY,JUN,JUL,AUG,SEP,OCT,NOV,DEC};
+
+
 
 class Date {
     private:
@@ -18,9 +23,12 @@ class Date {
         int month;
         int day;
 
+		int print_format; // 1 = numbers, 2 = letter months
+
     public:
         Date();
-        Date(int, int, int);
+		Date(int, int, int);
+        Date(int, int, int, int);
 
         // getters and setters
         void set_year(int);
@@ -29,6 +37,9 @@ class Date {
         int get_month();
         void set_day(int);
         int get_day();
+		void set_print_format(int);
+		int get_print_format();
+		string get_string_month_format() const;
 
         // methods
         bool date_validator();
@@ -48,11 +59,26 @@ class Date {
                 os << "0";
             }
 			os << date->day << "/";
-            if (date->month < 10) {
-                os << "0";
-            }
-            os << date->month << "/"; 
-            os << date->year;
+            
+			if ( date->print_format == 1 ) {
+				if (date->month < 10) {
+                	os << "0";
+            	}
+            	os << date->month << "/"; 
+			} else {
+				os << date->get_string_month_format() << "/";
+			}
+
+			if ( date->year < 10 ) {
+				os << "000" << date->year;
+			} else if ( date->year < 100 ) {
+				os << "00" << date->year;
+			} else if ( date->year < 1000 ) {
+				os << "0" << date->year;
+			} else {
+				os << date->year;
+			}
+
 			return os;
 		}
 
@@ -62,12 +88,26 @@ Date::Date() {
     this->year = 2000;
     this->month = 1;
     this->day = 1;
+	this->print_format = NUMBER_FORMAT;
 }
 
 Date::Date(int year, int month, int day) {
     this->year = year;
     this->month = month;
     this->day = day;
+	this->print_format = NUMBER_FORMAT;
+}
+
+Date::Date(int year, int month, int day, int print_format) {
+    this->year = year;
+    this->month = month;
+    this->day = day;
+
+	if ( print_format == NUMBER_FORMAT || print_format == STRING_FORMAT ) {
+		this->print_format = print_format;
+	} else {
+		this->print_format = NUMBER_FORMAT;
+	}
 }
 
 void Date::set_year (int year) {
@@ -92,6 +132,40 @@ void Date::set_day (int day) {
 
 int Date::get_day () {
 	return this->day;
+}
+
+void Date::set_print_format(int print_format) {
+	if ( print_format < NUMBER_FORMAT || print_format > STRING_FORMAT ) {
+		this->print_format = print_format;
+	} else {
+		this->print_format = NUMBER_FORMAT;
+	}
+}
+
+int Date::get_print_format() {
+	return this->print_format;
+}
+
+string Date::get_string_month_format() const {
+	string MONTHS[12];
+	MONTHS[0] = "JAN";
+	MONTHS[1] = "FEB";
+	MONTHS[2] = "MAR";
+	MONTHS[3] = "APR";
+	MONTHS[4] = "MAY";
+	MONTHS[5] = "JUN";
+	MONTHS[6] = "JUL";
+	MONTHS[7] = "AUG";
+	MONTHS[8] = "SEP";
+	MONTHS[9] = "OCT";
+	MONTHS[10] = "NOV";
+	MONTHS[11] = "DEC";
+
+	if ( month >= 1 && month <= 12 ) {
+		return MONTHS[month - 1];
+	} else {
+		return "MONTH INVALID";
+	}
 }
 
 bool Date::date_validator() {

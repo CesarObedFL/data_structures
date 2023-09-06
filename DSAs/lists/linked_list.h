@@ -39,12 +39,12 @@ class LinkedList {
 
 template<class T>
 LinkedList<T>::LinkedList() {
-    start_node = NULL;
+    this->start_node = NULL;
 }
 
 template<class T>
-LinkedList<T>::LinkedList(SimpleNode<T> *s) {
-    start_node = s;
+LinkedList<T>::LinkedList(SimpleNode<T> *start) {
+    this->start_node = start;
 }
 
 template<class T>
@@ -54,7 +54,7 @@ LinkedList<T>::~LinkedList() {
 
 template<class T>
 SimpleNode<T>* LinkedList<T>::first_node() {
-    return start_node;
+    return this->start_node;
 }
 
 template<class T>
@@ -156,18 +156,18 @@ int LinkedList<T>::size() {
 template<class T>
 void LinkedList<T>::insert_front(SimpleNode<T> *new_node) {
     if ( is_empty() ) {
-        start_node = new_node;
+        this->start_node = new_node;
 
     } else {
         new_node->set_next(first_node());
-        start_node = new_node;
+        this->start_node = new_node;
     }
 }
 
 template<class T>
 void LinkedList<T>::insert_back(SimpleNode<T> *new_node) {
     if ( is_empty() ) {
-        start_node = new_node;
+        this->start_node = new_node;
 
     } else {
         SimpleNode<T> *auxiliary_node = first_node();
@@ -181,7 +181,7 @@ void LinkedList<T>::insert_back(SimpleNode<T> *new_node) {
 template<class T>
 void LinkedList<T>::insert_position(SimpleNode<T> *new_node, int position) {
     if ( is_empty() ) {
-        start_node = new_node;
+        this->start_node = new_node;
 
     } else if ( position < 0 && position > size() ) {
         insert_back(new_node);
@@ -202,7 +202,7 @@ template<class T>
 void LinkedList<T>::delete_front() {
     if ( !is_empty() ) {
         SimpleNode<T> *auxiliary_node = first_node();
-        start_node = first_node()->get_next();
+        this->start_node = first_node()->get_next();
         delete(auxiliary_node);
     }
 }
@@ -252,7 +252,7 @@ void LinkedList<T>::clear() {
             auxiliary_node = auxiliary_node->get_next();
             delete(node_to_delete);
         }
-        start_node = NULL;
+        this->start_node = NULL;
     }
 }
 

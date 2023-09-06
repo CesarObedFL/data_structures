@@ -30,7 +30,7 @@ class ArrayQueue {
 
 template <class T>
 ArrayQueue<T>::ArrayQueue() { 
-    last = 0;
+    this->last = 0;
 }
 
 template <class T>
@@ -41,7 +41,7 @@ ArrayQueue<T>::~ArrayQueue() {
 template <class T>
 T ArrayQueue<T>::get_front() {
     if ( !is_empty() ) {
-        return queue[0];
+        return this->queue[0];
     } else {
         return NULL;
     }
@@ -49,31 +49,31 @@ T ArrayQueue<T>::get_front() {
 
 template <class T>
 bool ArrayQueue<T>::is_empty() {
-    return last == 0;
+    return this->last == 0;
 }
 
 template <class T>
 bool ArrayQueue<T>::is_full() {
-    return last == MAX_SIZE;
+    return this->last == MAX_SIZE;
 }
 
 template <class T>
 void ArrayQueue<T>::enqueue(T new_item) {
     if ( !is_full() ) {
-        queue[last] = new_item;
-        last++;
+        this->queue[this->last] = new_item;
+        this->last++;
     }
 }
 
 template <class T>
 T ArrayQueue<T>::dequeue() {
     if ( !is_empty() ) {
-        T item = queue[0];
+        T item = this->queue[0];
         for (int i = 0; i < last; i++) {
-            queue[i] = queue[i+1];
+            this->queue[i] = this->queue[i+1];
         }
-        queue[last] = 0;
-        last--;
+        this->queue[this->last] = 0;
+        this->last--;
         return item;
     } else {
         return 0;
@@ -86,9 +86,9 @@ template <class T>
 void ArrayQueue<T>::clear() {
     if ( !is_empty() ) {
         for (int i = 0; i < MAX_SIZE; i++ ) {
-            queue[i] = 0;
+            this->queue[i] = 0;
         }
-        last = 0;
+        this->last = 0;
     }
 }
 
@@ -98,8 +98,8 @@ void ArrayQueue<T>::show() {
         cout << "The queue is empty...";
 
     } else {
-        for (int i = 0; i < last; i++){
-            cout << i+1 << ".- " << queue[i] << endl;
+        for (int i = 0; i < this->last; i++){
+            cout << i+1 << ".- " << this->queue[i] << endl;
         }
     }
 }

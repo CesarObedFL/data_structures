@@ -30,7 +30,7 @@ class ArrayStack {
 
 template <class T>
 ArrayStack<T>::ArrayStack() { 
-    top = 0;
+    this->top = 0;
 }
 
 template <class T>
@@ -41,7 +41,7 @@ ArrayStack<T>::~ArrayStack() {
 template <class T>
 T ArrayStack<T>::get_top() {
     if ( !is_empty() ) {
-        return stack[top];
+        return this->stack[this->top];
     } else {
         return NULL;
     }
@@ -49,28 +49,28 @@ T ArrayStack<T>::get_top() {
 
 template <class T>
 bool ArrayStack<T>::is_empty() {
-    return stack[top] == 0;
+    return this->stack[this->top] == 0;
 }
 
 template <class T>
 bool ArrayStack<T>::is_full() {
-    return top == MAX_SIZE;
+    return this->top == MAX_SIZE;
 }
 
 template <class T>
 void ArrayStack<T>::push(T new_item) {
     if ( !is_full() ) {
-        stack[top] = new_item;
-        top++;
+        this->stack[this->top] = new_item;
+        this->top++;
     }
 }
 
 template <class T>
 T ArrayStack<T>::pop() {
     if ( !is_empty() ) {
-        T item = stack[top];
-        stack[top] = 0;
-        top--;
+        T item = this->stack[this->top];
+        this->stack[this->top] = 0;
+        this->top--;
         return item;
     } else {
         return 0;
@@ -83,9 +83,9 @@ template <class T>
 void ArrayStack<T>::clear() {
     if ( !is_empty() ) {
         for (int i = 0; i < MAX_SIZE; i++ ) {
-            stack[i] = 0;
+            this->stack[i] = 0;
         }
-        top = 0;
+        this->top = 0;
     }
 }
 
@@ -95,8 +95,8 @@ void ArrayStack<T>::show() {
         cout << "The stack is empty...";
 
     } else {
-        for (int i = 0; i < top; i++){
-            cout << i+1 << ".- " << stack[i] << endl;
+        for (int i = 0; i < this->top; i++){
+            cout << i+1 << ".- " << this->stack[i] << endl;
         }
     }
 }

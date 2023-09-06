@@ -39,14 +39,14 @@ class DoubleLinkedList {
 
 template<class T>
 DoubleLinkedList<T>::DoubleLinkedList() {
-    start_node = NULL;
-    end_node = NULL;
+    this->start_node = NULL;
+    this->end_node = NULL;
 }
 
 template<class T>
-DoubleLinkedList<T>::DoubleLinkedList(DoubleNode<T> *n) {
-    start_node = n;
-    end_node = n;
+DoubleLinkedList<T>::DoubleLinkedList(DoubleNode<T> *node) {
+    this->start_node = node;
+    this->end_node = node;
 }
 
 template<class T>
@@ -56,12 +56,12 @@ DoubleLinkedList<T>::~DoubleLinkedList() {
 
 template<class T>
 DoubleNode<T>* DoubleLinkedList<T>::first_node() {
-    return start_node;
+    return this->start_node;
 }
 
 template<class T>
 DoubleNode<T>* DoubleLinkedList<T>::last_node() {
-    return end_node;
+    return this->end_node;
 }
 
 template<class T>
@@ -154,33 +154,33 @@ int DoubleLinkedList<T>::size() {
 template<class T>
 void DoubleLinkedList<T>::insert_front(DoubleNode<T> *new_node) {
     if ( is_empty() ) {
-        start_node = new_node;
-        end_node = new_node;
+        this->start_node = new_node;
+        this->end_node = new_node;
 
     } else {
         new_node->set_next(first_node());
-        start_node = new_node;
+        this->start_node = new_node;
     }
 }
 
 template<class T>
 void DoubleLinkedList<T>::insert_back(DoubleNode<T> *new_node) {
     if ( is_empty() ) {
-        start_node = new_node;
-        end_node = new_node;
+        this->start_node = new_node;
+        this->end_node = new_node;
 
     } else {
-        new_node->set_previous(end_node);
-        end_node->set_next(new_node);
-        end_node = new_node;
+        new_node->set_previous(this->end_node);
+        this->end_node->set_next(new_node);
+        this->end_node = new_node;
     }
 }
 
 template<class T>
 void DoubleLinkedList<T>::insert_position(DoubleNode<T> *new_node, int position) {
     if ( is_empty() ) {
-        start_node = new_node;
-        end_node = new_node;
+        this->start_node = new_node;
+        this->end_node = new_node;
 
     } else if ( position < 0 && position > size() ) {
         insert_back(new_node);
@@ -204,12 +204,12 @@ template<class T>
 void DoubleLinkedList<T>::delete_front() {
     if ( !is_empty() ) {
         DoubleNode<T> *auxiliary_node = first_node();
-        if ( start_node == end_node ) {
-            start_node = NULL;
-            end_node = NULL;
+        if ( this->start_node == this->end_node ) {
+            this->start_node = NULL;
+            this->end_node = NULL;
 
         } else {
-            start_node = first_node()->get_next();
+            this->start_node = first_node()->get_next();
         }
         
         delete(auxiliary_node);
@@ -220,8 +220,8 @@ template<class T>
 void DoubleLinkedList<T>::delete_back() {
     if ( !is_empty() ) {
         DoubleNode<T> *auxiliary_node = last_node();
-        end_node->get_previous()->set_next(NULL);
-        end_node = end_node->get_previous();
+        this->end_node->get_previous()->set_next(NULL);
+        this->end_node = this->end_node->get_previous();
         delete(auxiliary_node);
     }
 }
@@ -259,8 +259,8 @@ void DoubleLinkedList<T>::clear() {
             auxiliary_node = auxiliary_node->get_next();
             delete(node_to_delete);
         }
-        start_node = NULL;
-        end_node = NULL;
+        this->start_node = NULL;
+        this->end_node = NULL;
     }
 }
 

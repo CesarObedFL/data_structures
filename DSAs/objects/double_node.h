@@ -42,45 +42,45 @@ class DoubleNode {
 
 template<class T>
 DoubleNode<T>::DoubleNode() {
-    next = NULL;
-    previous = NULL;
+    this->next = NULL;
+    this->previous = NULL;
 }
 
 template<class T>
-DoubleNode<T>::DoubleNode(T v, DoubleNode<T> *n, DoubleNode<T> *p) {
-    value = v;
-    next = n;
-    previous = p;
+DoubleNode<T>::DoubleNode(T value, DoubleNode<T> *next, DoubleNode<T> *previous) {
+    this->value = value;
+    this->next = next;
+    this->previous = previous;
 }
 
 template<class T>
-void DoubleNode<T>::set_value(T v) {
-    value = v;
+void DoubleNode<T>::set_value(T value) {
+    this->value = value;
 }
 
 template<class T>
 T DoubleNode<T>::get_value() {
-    return value;
+    return this->value;
 }
 
 template<class T>
-void DoubleNode<T>::set_next(DoubleNode<T>* n) {
-    next = n;
+void DoubleNode<T>::set_next(DoubleNode<T>* next) {
+    this->next = next;
 }
 
 template<class T>
 DoubleNode<T>* DoubleNode<T>::get_next() {
-    return next;
+    return this->next;
 }
 
 template<class T>
-void DoubleNode<T>::set_previous(DoubleNode<T>* p) {
-    previous = p;
+void DoubleNode<T>::set_previous(DoubleNode<T>* previous) {
+    this->previous = previous;
 }
 
 template<class T>
 DoubleNode<T>* DoubleNode<T>::get_previous() {
-    return previous;
+    return this->previous;
 }
 
 #endif

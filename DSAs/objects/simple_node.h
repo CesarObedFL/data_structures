@@ -11,12 +11,12 @@ class SimpleNode {
 
         // constructors and destructors
 		SimpleNode();
-		SimpleNode(T v, SimpleNode<T> *n);
+		SimpleNode(T, SimpleNode<T>*);
 
         // getters and setters
-		void set_value(T v);
+		void set_value(T);
 		T get_value();
-		void set_next(SimpleNode<T>* n);
+		void set_next(SimpleNode<T>*);
 		SimpleNode<T>* get_next();
 
 		// istream operator overload (>>)
@@ -39,33 +39,33 @@ class SimpleNode {
 
 template<class T>
 SimpleNode<T>::SimpleNode() {
-    next = NULL;
+    this->next = NULL;
 }
 
 template<class T>
-SimpleNode<T>::SimpleNode(T v, SimpleNode<T> *n) {
-    value = v;
-    next = n;
+SimpleNode<T>::SimpleNode(T value, SimpleNode<T> *next) {
+    this->value = value;
+    this->next = next;
 }
 
 template<class T>
-void SimpleNode<T>::set_value(T v) {
-    value = v;
+void SimpleNode<T>::set_value(T value) {
+    this->value = value;
 }
 
 template<class T>
 T SimpleNode<T>::get_value() {
-    return value;
+    return this->value;
 }
 
 template<class T>
-void SimpleNode<T>::set_next(SimpleNode<T>* n) {
-    next = n;
+void SimpleNode<T>::set_next(SimpleNode<T>* next) {
+    this->next = next;
 }
 
 template<class T>
 SimpleNode<T>* SimpleNode<T>::get_next() {
-    return next;
+    return this->next;
 }
 
 #endif

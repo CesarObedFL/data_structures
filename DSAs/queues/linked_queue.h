@@ -25,12 +25,12 @@ class LinkedQueue {
 
 template <class T>
 LinkedQueue<T>::LinkedQueue() { 
-    first = 0;
+    this->first = 0;
 }
 
 template<class T>
-LinkedQueue<T>::LinkedQueue(SimpleNode<T> *f) {
-    first = f;
+LinkedQueue<T>::LinkedQueue(SimpleNode<T> *first) {
+    this->first = first;
 }
 
 template <class T>
@@ -40,15 +40,15 @@ LinkedQueue<T>::~LinkedQueue() {
 
 template <class T>
 bool LinkedQueue<T>::is_empty() {
-    return first == NULL;
+    return this->first == NULL;
 }
 
 template <class T>
 void LinkedQueue<T>::enqueue(SimpleNode<T> *new_item) {
     if ( is_empty() ) {
-        first = new_item;
+        this->first = new_item;
     } else {
-        SimpleNode<T> *aux = first;
+        SimpleNode<T> *aux = this->first;
         while (aux->get_next()) {
             aux = aux->get_next();
         }
@@ -59,8 +59,8 @@ void LinkedQueue<T>::enqueue(SimpleNode<T> *new_item) {
 template <class T>
 SimpleNode<T>* LinkedQueue<T>::dequeue() {
     if ( !is_empty() ) {
-        SimpleNode<T>* item = first;
-        first = first->get_next();
+        SimpleNode<T>* item = this->first;
+        this->first = this->first->get_next();
         return item;
     } else {
         return NULL;
@@ -70,9 +70,9 @@ SimpleNode<T>* LinkedQueue<T>::dequeue() {
 template <class T>
 void LinkedQueue<T>::clear() {
     if ( !is_empty() ) {
-        while( first ) {
-            SimpleNode<T> *aux = first;
-            first = first->get_next();
+        while( this->first ) {
+            SimpleNode<T> *aux = this->first;
+            this->first = this->first->get_next();
             delete (aux);
         }
     }
@@ -84,7 +84,7 @@ void LinkedQueue<T>::show() {
         cout << "The queue is empty...";
 
     } else {
-        SimpleNode<T> *aux = first;
+        SimpleNode<T> *aux = this->first;
         int i = 1;
         while ( aux ) {
             cout << i << ".- " << aux << endl;

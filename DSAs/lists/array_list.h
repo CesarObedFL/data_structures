@@ -39,13 +39,13 @@ class ArrayList {
 
 template <class T>
 ArrayList<T>::ArrayList(){
-	first = 0;
-	last = -1;
+	this->first = 0;
+	this->last = -1;
 }
 
 template <class T>
 bool ArrayList<T>::is_empty(){
-	if( last == -1 ){
+	if( this->last == -1 ){
 		return true;
 	} else {
 		return false;
@@ -54,7 +54,7 @@ bool ArrayList<T>::is_empty(){
 
 template <class T>
 bool ArrayList<T>::is_full(){
-	if( last == SIZE-1 ){
+	if( this->last == SIZE-1 ){
 		return true;
 	} else {
 		return false;
@@ -63,7 +63,7 @@ bool ArrayList<T>::is_full(){
 
 template <class T>
 T ArrayList<T>::get_item(int position){
-	return array_list[position];
+	return this->array_list[position];
 }
 
 template <class T>
@@ -71,7 +71,7 @@ T ArrayList<T>::get_first_item(){
 	if ( is_empty() ){
 		return 0;
 	} else {
-		return array_list[first];
+		return this->array_list[this->first];
 	}
 }
 
@@ -80,7 +80,7 @@ T ArrayList<T>::get_last_item(){
 	if ( is_empty() ){
 		return 0;
 	} else {
-		return array_list[last+1];
+		return this->array_list[this->last+1];
 	}
 }
 
@@ -89,7 +89,7 @@ T ArrayList<T>::get_next_item(int position){
 	if ( is_full() ){
 		return 0;
 	} else {
-		return array_list[position+1];
+		return this->array_list[position+1];
 	}
 }
 
@@ -98,7 +98,7 @@ T ArrayList<T>::get_previous_item(int position){
 	if ( is_empty() ){
 		return 0;
 	} else {
-		return array_list[position-1];
+		return this->array_list[position-1];
 	}
 }
 
@@ -130,14 +130,14 @@ void ArrayList<T>::perform_insertion(T new_item){
 				cout << "Invalid option...\n";
 			break;
 		}
-    }while(is_option_valid != true);
+    } while(is_option_valid != true);
 	
 }
 
 template <class T>
 void ArrayList<T>::insert_item(T new_item){
 	if ( is_empty() || !is_full() ) {
-		array_list[++last] = new_item;
+		this->array_list[++this->last] = new_item;
 	} else {
 		cout << "The list is full...";
 	}
@@ -146,13 +146,13 @@ void ArrayList<T>::insert_item(T new_item){
 template <class T>
 void ArrayList<T>::insert_item_by_position(int position, T new_item){
 	if ( !is_full() ) {
-		if(position > first && position <= last){
+		if(position > first && position <= this->last){
 			position--;
-			for (int k = last+1; k > position; k--) {
-				array_list[k] = array_list[k-1];
+			for (int k = this->last+1; k > position; k--) {
+				this->array_list[k] = this->array_list[k-1];
             }
-			array_list[position] = new_item;
-			last++;
+			this->array_list[position] = new_item;
+			this->last++;
 		} else {
 		    cout << "\nInvalid position...\n";
 		}
@@ -166,11 +166,11 @@ void ArrayList<T>::edit_item(int position){
 	if ( is_empty() ){
 		cout << "\nEmpty list...\n";
 	} else {
-		if (position >= first && position <= last){
+		if (position >= this->first && position <= this->last){
 			cout << "Editing item at position " << position << endl;
-			cout << array_list[position]; // << operator overload
+			cout << this->array_list[position]; // << operator overload
             cout << "Enter the new values:";
-			cin >> array_list[position];
+			cin >> this->array_list[position];
 		} else {
 			cout << "\nInvalid position...\n";
 		}
@@ -181,12 +181,12 @@ template <class T>
 void ArrayList<T>::remove_item(int position){
 	if ( is_empty() ) {
 		cout << "\n\nEmpty List...";
-	} else if (position > first-1 && position < last+1) {
-			for (int k = position+1; k <= last; k++) {
-				array_list[k-1] = array_list[k];
+	} else if (position > this->first-1 && position < this->last+1) {
+			for (int k = position+1; k <= this->last; k++) {
+				this->array_list[k-1] = this->array_list[k];
             }
 			position--;
-			last--;
+			this->last--;
 	} else {
 		cout << "\nInvalid position...";
 	}
@@ -201,11 +201,11 @@ void ArrayList<T>::print_list(){
 	} else {
 		cout << "\n\n\t\t...Listing...\n\n";
 		int i = 0;
-		while (i < last+1){
-			cout << (i+1) << ".- " << array_list[i] << "\n";
+		while (i < this->last+1){
+			cout << (i+1) << ".- " << this->array_list[i] << "\n";
 		    i++;
 		}
-		if (last == SIZE-1){
+		if (this->last == SIZE-1){
 			cout << "\nThe list is full!!!";
 		}
 	}

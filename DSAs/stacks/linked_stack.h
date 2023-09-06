@@ -25,12 +25,12 @@ class LinkedStack {
 
 template<class T>
 LinkedStack<T>::LinkedStack() {
-    top = NULL;
+    this->top = NULL;
 }
 
 template<class T>
-LinkedStack<T>::LinkedStack(SimpleNode<T> *t) {
-    top = t;
+LinkedStack<T>::LinkedStack(SimpleNode<T> *top) {
+    this->top = top;
 }
 
 template<class T>
@@ -40,24 +40,24 @@ LinkedStack<T>::~LinkedStack() {
 
 template<class T>
 bool LinkedStack<T>::is_empty() {
-    return top == NULL;
+    return this->top == NULL;
 }
 
 template<class T>
 void LinkedStack<T>::push(SimpleNode<T> *new_item) {
     if ( !is_empty() ) {
         new_item->set_next(top);
-        top = new_item;
+        this->top = new_item;
     } else {
-        top = new_item;
+        this->top = new_item;
     }
 }
 
 template<class T>
 SimpleNode<T>* LinkedStack<T>::pop() {
     if ( !is_empty() ) {
-        SimpleNode<T> *aux = top;
-        top = top->get_next();
+        SimpleNode<T> *aux = this->top;
+        this->top = this->top->get_next();
         return aux;
     } else {
         return NULL;
@@ -68,8 +68,8 @@ template<class T>
 void LinkedStack<T>::clear() {
     if ( !is_empty() ) {
         while (!is_empty()) {
-            SimpleNode<T> *item_to_delete = top;
-            top = top->get_next();
+            SimpleNode<T> *item_to_delete = this->top;
+            this->top = this->top->get_next();
             delete (item_to_delete);
         }
     }
@@ -80,7 +80,7 @@ void LinkedStack<T>::show() {
     if( is_empty() ) {
         cout << "The stack is empty...";
     } else {
-        SimpleNode<T> *aux = top;
+        SimpleNode<T> *aux = this->top;
         while (aux) {
             cout << "-> " << aux;
             aux = aux->get_next();

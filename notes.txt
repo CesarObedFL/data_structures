@@ -82,4 +82,5 @@
 
     TO DO LIST
 
-- Update getters and setters to use this-> pointer
+- Dinamic size on static dsa's
+- Administration classes

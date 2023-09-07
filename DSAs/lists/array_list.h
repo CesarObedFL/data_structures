@@ -3,21 +3,25 @@
 
 #include "../../assets/utils.h"
 
-#define SIZE 25
 
 template <class T>
 class ArrayList {
 	private:
-		T array_list[SIZE];
-		int first;
-		int	last; 
+		T* array_list;
+		int max_size;
+		int first_position;
+		int	last_position; 
 
 	public:
-		ArrayList(); /* constructor */
+		ArrayList();  // constructor
+		ArrayList(int);
+		~ArrayList(); // destructor
 
-        // staus list
+        // status list
         bool is_empty(); 
 		bool is_full();
+		int get_size();
+		int get_max_size();
 		
         // get item and position functions
         T get_item(int);
@@ -39,13 +43,28 @@ class ArrayList {
 
 template <class T>
 ArrayList<T>::ArrayList(){
-	this->first = 0;
-	this->last = -1;
+	this->max_size = 25;
+	this->array_list = new T[this->max_size];
+	this->first_position = 0;
+	this->last_position = -1;
+}
+
+template <class T>
+ArrayList<T>::ArrayList(int max_size){
+	this->max_size = max_size;
+	this->array_list = new T[this->max_size];
+	this->first_position = 0;
+	this->last_position = -1;
+}
+
+template <class T>
+ArrayList<T>::~ArrayList(){
+	delete[] this->array_list;
 }
 
 template <class T>
 bool ArrayList<T>::is_empty(){
-	if( this->last == -1 ){
+	if( this->last_position == -1 ){
 		return true;
 	} else {
 		return false;
@@ -54,7 +73,7 @@ bool ArrayList<T>::is_empty(){
 
 template <class T>
 bool ArrayList<T>::is_full(){
-	if( this->last == SIZE-1 ){
+	if( this->last_position == get_max_size()-1 ){
 		return true;
 	} else {
 		return false;
@@ -62,8 +81,26 @@ bool ArrayList<T>::is_full(){
 }
 
 template <class T>
+int ArrayList<T>::get_size(){
+	if( is_empty() ) {
+		return 0;
+	} else {
+		return this->last_position + 1;
+	}
+}
+
+template <class T>
+int ArrayList<T>::get_max_size(){
+	return this->max_size;
+}
+
+template <class T>
 T ArrayList<T>::get_item(int position){
-	return this->array_list[position];
+	if ( position >= this->first_position && position <= get_size() ) {
+		return this->array_list[position-1];
+	} else {
+		return get_last_item();
+	}
 }
 
 template <class T>
@@ -71,7 +108,7 @@ T ArrayList<T>::get_first_item(){
 	if ( is_empty() ){
 		return 0;
 	} else {
-		return this->array_list[this->first];
+		return this->array_list[this->first_position];
 	}
 }
 
@@ -80,25 +117,27 @@ T ArrayList<T>::get_last_item(){
 	if ( is_empty() ){
 		return 0;
 	} else {
-		return this->array_list[this->last+1];
+		return this->array_list[get_size()-1];
 	}
 }
 
 template <class T>
 T ArrayList<T>::get_next_item(int position){
-	if ( is_full() ){
-		return 0;
+	if ( position >= this->first_position && position < get_size() ) {
+		return this->array_list[position];
 	} else {
-		return this->array_list[position+1];
+		cout << "invalid position";
+		return 0;
 	}
 }
 
 template <class T>
 T ArrayList<T>::get_previous_item(int position){
-	if ( is_empty() ){
-		return 0;
+	if ( position > this->first_position && position <= get_size() ) {
+		return this->array_list[position-2];
 	} else {
-		return this->array_list[position-1];
+		cout << "invalid position";
+		return 0;
 	}
 }
 
@@ -109,8 +148,7 @@ void ArrayList<T>::perform_insertion(T new_item){
 	int chosen_position;
 	do
     {
-		cout << "\n\n";
-		cout << "Do you want to chose the position where insert the item? y/n" << endl;
+		cout << endl << "Do you want to chose the position where insert the item? y/n" << endl;
         cin >> option;
 		
 		switch(option){
@@ -120,14 +158,14 @@ void ArrayList<T>::perform_insertion(T new_item){
 			break;
 
 			case 'y':
-				cout << "\nInsert the number of the position: ";
+				cout << endl << "Insert the number of the position: ";
 				cin >> chosen_position;
 				insert_item_by_position(chosen_position, new_item);
 				is_option_valid = true;
 			break;
 			
 			default:
-				cout << "Invalid option...\n";
+				cout << endl << "Invalid option..." << endl;
 			break;
 		}
     } while(is_option_valid != true);
@@ -137,42 +175,42 @@ void ArrayList<T>::perform_insertion(T new_item){
 template <class T>
 void ArrayList<T>::insert_item(T new_item){
 	if ( is_empty() || !is_full() ) {
-		this->array_list[++this->last] = new_item;
+		this->array_list[++this->last_position] = new_item;
 	} else {
-		cout << "The list is full...";
+		cout << endl << "The list is full..." << endl;
 	}
 }
 
 template <class T>
 void ArrayList<T>::insert_item_by_position(int position, T new_item){
 	if ( !is_full() ) {
-		if(position > first && position <= this->last){
+		if(position > this->first_position && position <= get_size()){
 			position--;
-			for (int k = this->last+1; k > position; k--) {
+			for (int k = get_size(); k > position; k--) {
 				this->array_list[k] = this->array_list[k-1];
             }
 			this->array_list[position] = new_item;
-			this->last++;
+			this->last_position++;
 		} else {
-		    cout << "\nInvalid position...\n";
+		    cout << endl << "Invalid position..." << endl;
 		}
 	} else {
-		cout << "The List is full...";
+		cout << endl << "The List is full..." << endl;
 	}
 }
 
 template <class T>
 void ArrayList<T>::edit_item(int position){
 	if ( is_empty() ){
-		cout << "\nEmpty list...\n";
+		cout << endl << "Empty list..." << endl;
 	} else {
-		if (position >= this->first && position <= this->last){
-			cout << "Editing item at position " << position << endl;
-			cout << this->array_list[position]; // << operator overload
+		if (position >= this->first_position && position <= get_size()){
+			cout << "Editing item at position " << position 
+				 << "  value: " << this->array_list[position] << endl; // << operator overload
             cout << "Enter the new values:";
-			cin >> this->array_list[position];
+			cin >> this->array_list[position]; // >> operator overload
 		} else {
-			cout << "\nInvalid position...\n";
+			cout << endl << "Invalid position..." << endl;
 		}
 	}
 }
@@ -180,15 +218,16 @@ void ArrayList<T>::edit_item(int position){
 template <class T>
 void ArrayList<T>::remove_item(int position){
 	if ( is_empty() ) {
-		cout << "\n\nEmpty List...";
-	} else if (position > this->first-1 && position < this->last+1) {
-			for (int k = position+1; k <= this->last; k++) {
-				this->array_list[k-1] = this->array_list[k];
-            }
-			position--;
-			this->last--;
+		cout << endl << "Empty List..." << endl;
+	} else if (position > this->first_position-1 && position < get_size()+1) {
+		cout << endl << "Removig item at position: " << position << endl;
+		for (int k = position; k <= get_size(); k++) {
+			this->array_list[k-1] = this->array_list[k];
+		}
+		position--;
+		this->last_position--;
 	} else {
-		cout << "\nInvalid position...";
+		cout << endl << "Invalid position...";
 	}
 }
 
@@ -196,17 +235,17 @@ void ArrayList<T>::remove_item(int position){
 template <class T>
 void ArrayList<T>::print_list(){
 	if ( is_empty() ){
-		cout << "\nEmpty list\n";
+		cout << endl << "Empty list" << endl;
 
 	} else {
-		cout << "\n\n\t\t...Listing...\n\n";
+		cout << endl << endl << "\t...Listing..." << endl << endl;
 		int i = 0;
-		while (i < this->last+1){
-			cout << (i+1) << ".- " << this->array_list[i] << "\n";
+		while (i < get_size()){
+			cout << (i+1) << ".- " << this->array_list[i] << endl;
 		    i++;
 		}
-		if (this->last == SIZE-1){
-			cout << "\nThe list is full!!!";
+		if (get_size() == get_max_size()){
+			cout << endl << "The list is full!" << endl;
 		}
 	}
 }

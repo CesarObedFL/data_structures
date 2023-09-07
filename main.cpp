@@ -32,14 +32,29 @@ int main() {
 
     //chronometer();
 
-    /*
-    ArrayList<int> list_of_integers;
+    
+    ArrayList<int> list_of_integers(5);
+    list_of_integers.edit_item(2);
+    cout << "List size: " << list_of_integers.get_size() << " max size: " << list_of_integers.get_max_size() << endl;
     list_of_integers.perform_insertion(10);
-    list_of_integers.perform_insertion(9);
     list_of_integers.perform_insertion(8);
     list_of_integers.perform_insertion(7);
+    list_of_integers.perform_insertion(6);
+    list_of_integers.perform_insertion(9);
     list_of_integers.print_list();
-    */
+    cout << "List size: " << list_of_integers.get_size() << " max size: " << list_of_integers.get_max_size() << endl;	
+    cout << "get item number 3: " << list_of_integers.get_item(3) << endl
+         << "get item number 5: " << list_of_integers.get_item(5) << endl
+	     << "first item: " << list_of_integers.get_first_item() << endl
+		 << "last item: " << list_of_integers.get_last_item() << endl
+		 << "next item of " << list_of_integers.get_item(2) << ": " << list_of_integers.get_next_item(2) << endl
+		 << "previous item of " << list_of_integers.get_item(2) << ": " << list_of_integers.get_previous_item(2) << endl;
+    list_of_integers.edit_item(2);
+    list_of_integers.print_list();
+    list_of_integers.remove_item(2);
+    cout << "List size: " << list_of_integers.get_size() << " max size: " << list_of_integers.get_max_size() << endl;	
+    list_of_integers.print_list();
+    
 
     /*
     LinkedList<int> list_of_integers;
@@ -206,6 +221,7 @@ int main() {
     } while ( question("do you want to continue?") );
     */
     
+    /*
     Date* date_1 = new Date(2023, 9, 1, 1);
     Date* date_2 = new Date(2000, 1, 31, 2);
     Date* date_3 = new Date(1978, 6, 0, 1);
@@ -229,7 +245,7 @@ int main() {
 
     //cin >> date_1; 
     //cout << date_1;
-
+    */
 
 
 

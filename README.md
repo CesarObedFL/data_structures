@@ -32,6 +32,7 @@ This repository pretends to have each basic data structure and each basic algori
     - Array List
     - Linked List
     - Double Linked List
+    - Circle Linked List
 
 - Queues
     - Array Queue

@@ -260,7 +260,7 @@ void CircleLinkedList<T>::clear() {
     if ( !is_empty() ) {
         DoubleNode<T> *auxiliary_node = first_node();
         DoubleNode<T> *node_to_delete;
-        while ( auxiliary_node ) {
+        while ( auxiliary_node != last_node() ) {
             node_to_delete = auxiliary_node;
             auxiliary_node = auxiliary_node->get_next();
             delete(node_to_delete);

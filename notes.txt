@@ -13,9 +13,6 @@
     - Verification of Parentheses and Balanced Expressions
     - Backtracking
 
-- Lists
-    - Circular List
-
 - Trees
     - Tree Routes (Preorder, Inorder, Postorder & Level Route)
     - Binary Trees

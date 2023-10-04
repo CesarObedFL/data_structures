@@ -113,6 +113,33 @@ int main() {
     list_of_integers.show();
     */
 
+    CircleLinkedList<int> list_of_integers;
+    list_of_integers.show();
+    list_of_integers.insert_front(new DoubleNode<int>(9, NULL, NULL));
+    list_of_integers.insert_back(new DoubleNode<int>(7, NULL, NULL));
+    list_of_integers.insert_front(new DoubleNode<int>(10, NULL, NULL));
+    list_of_integers.insert_back(new DoubleNode<int>(6, NULL, NULL));
+    list_of_integers.show();
+    list_of_integers.insert_position(new DoubleNode<int>(8, NULL, NULL), 3);
+    list_of_integers.insert_back(new DoubleNode<int>(5, NULL, NULL));
+    list_of_integers.insert_back(new DoubleNode<int>(4, NULL, NULL));
+    list_of_integers.show();
+    cout << "size: " << list_of_integers.size() << endl;
+    cout << "first node: " << list_of_integers.first_node() << endl;
+    cout << "second node: " << list_of_integers.next_node( list_of_integers.first_node() ) << endl;
+    cout << "antepenultimate node: " << list_of_integers.previous_node( list_of_integers.last_node() ) << endl;
+    cout << "last node: " << list_of_integers.last_node() << endl;
+    cout << "recover: " << list_of_integers.recover(3) << endl;
+    cout << "locate: " << list_of_integers.locate(list_of_integers.previous_node( list_of_integers.last_node() )) << endl;
+    list_of_integers.delete_position(3);
+    list_of_integers.show();
+    list_of_integers.delete_front();
+    list_of_integers.show();
+    list_of_integers.delete_back();
+    list_of_integers.show();
+    list_of_integers.clear();
+    list_of_integers.show();
+
     /*
     ArrayQueue<int> queue_of_integers;
     queue_of_integers.show();

@@ -12,6 +12,7 @@
 #include "algorithms/number_to_binary.h"
 
 #include "DSAs/lists/array_list.h"
+#include "DSAs/lists/circle_linked_list.h"
 #include "DSAs/lists/double_linked_list.h"
 #include "DSAs/lists/linked_list.h"
 
@@ -32,7 +33,7 @@ int main() {
 
     //chronometer();
 
-    
+    /*
     ArrayList<int> list_of_integers(5);
     list_of_integers.edit_item(2);
     cout << "List size: " << list_of_integers.get_size() << " max size: " << list_of_integers.get_max_size() << endl;
@@ -54,7 +55,7 @@ int main() {
     list_of_integers.remove_item(2);
     cout << "List size: " << list_of_integers.get_size() << " max size: " << list_of_integers.get_max_size() << endl;	
     list_of_integers.print_list();
-    
+    */
 
     /*
     LinkedList<int> list_of_integers;

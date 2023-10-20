@@ -10,6 +10,7 @@
 #include "algorithms/data_types.h"
 #include "algorithms/date_validator.h"
 #include "algorithms/number_to_binary.h"
+#include "algorithms/string_functions.h"
 
 #include "DSAs/lists/array_list.h"
 #include "DSAs/lists/circle_linked_list.h"
@@ -30,6 +31,8 @@ int main() {
     clean;
     
     //print_data_types();
+
+    print_string_functions();
 
     //chronometer();
 
@@ -113,6 +116,7 @@ int main() {
     list_of_integers.show();
     */
 
+    /*
     CircleLinkedList<int> list_of_integers;
     list_of_integers.show();
     list_of_integers.insert_front(new DoubleNode<int>(9, NULL, NULL));
@@ -139,6 +143,7 @@ int main() {
     list_of_integers.show();
     list_of_integers.clear();
     list_of_integers.show();
+    */
 
     /*
     ArrayQueue<int> queue_of_integers;

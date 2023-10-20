@@ -1,8 +1,8 @@
     MISSING DATA STRUCTURES
 
 - Linked Nodes
-    - Edges
-    - Vertices
+    - Edges     // Edge represents a path between two vertices or a line between two vertices in a graph
+    - Vertex    // Each node of the graph is represented as a vertex.  
 
 - Queues
     - Posfix Notation Queues 
